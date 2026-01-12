@@ -1,10 +1,16 @@
-// components/top/ProductCard.tsx
+'use client';
+
+import Link from 'next/link';
+import Image from "next/image";
+
 type Props = {
+  id: number;
   name: string;
   price: number;
+  imageBase64: string;
 };
 
-export const ProductCard = ({ name, price }: Props) => {
+export const ProductCard = ({ id, name, price, imageBase64 }: Props) => {
   return (
     <div
       style={{
@@ -15,15 +21,34 @@ export const ProductCard = ({ name, price }: Props) => {
         backgroundColor: "#FFF",
       }}
     >
-      <div
-        style={{
-          height: "160px",
-          backgroundColor: "#FFF3C4",
-          borderRadius: "8px",
-          marginBottom: "12px",
-        }}
-      />
-      <h3>{name}</h3>
+      {/* 画像 */}
+      <Link href={`/products/${id}`}>
+        <div
+          style={{
+            position: "relative",
+            height: "160px",
+            borderRadius: "8px",
+            marginBottom: "12px",
+            cursor: "pointer",
+            overflow: "hidden",
+          }}
+        >
+        <Image
+          src="/honeyEC/honey1.jpeg"
+          alt="はちみつ"
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+        />
+        </div>
+      </Link>
+
+      {/* 商品名 */}
+      <Link href={`/products/${id}`}>
+        <h3 style={{ cursor: "pointer" }}>{name}</h3>
+      </Link>
+
       <p>¥{price.toLocaleString()}</p>
     </div>
   );
