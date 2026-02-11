@@ -1,6 +1,8 @@
 'use client';
 
-import { Button } from "@/components/common/Button";
+import PokemonFinder from "../apiPractice/PokemonFinder";
+
+// import { Button } from "@/components/common/Button";
 
 export const Hero = () => {
   return (
@@ -17,7 +19,11 @@ export const Hero = () => {
       <p style={{ margin: "24px 0", color: "#5A3E1B" }}>
         厳選された国産はちみつを産地直送でお届けします
       </p>
-      <Button label="商品を見る" />
+      {/* <Button label="商品を見る" /> */}
+      <div style={{
+        backgroundColor: "white",
+        color: "black"
+      }}><PokemonFinder /></div>
     </section>
   );
 };
